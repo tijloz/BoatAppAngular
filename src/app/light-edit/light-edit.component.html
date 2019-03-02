@@ -1,0 +1,31 @@
+<h2>Lights</h2>
+<!--<ul class="lights">-->
+<!--<li *ngFor="let light of lights"-->
+<!--[class.selected]="light === selectedLight"-->
+<!--(click)="onSelect(light)">-->
+<!--<span class="badge">{{light.id}}</span> {{light.name}}-->
+<!--</li>-->
+<!--</ul>-->
+
+<div>
+  <label>Light name:
+    <input #lightName />
+  </label>
+  <!-- (click) passes input value to add() and then clears the input -->
+  <button (click)="add(lightName.value); lightName.value=''">
+    add
+  </button>
+</div>
+
+<ul class="lights">
+  <li *ngFor="let light of lights">
+    <a routerLink="/detail/{{light.id}}">
+      <span class="badge">{{light.id}}</span> {{light.name}}
+    </a>
+    <button class="delete" title="delete light"
+            (click)="delete(light)">x</button>
+  </li>
+</ul>
+
+<!--<app-light-detail [light]="selectedLight"></app-light-detail>-->
+<!--<button (click)="save()">save</button>-->

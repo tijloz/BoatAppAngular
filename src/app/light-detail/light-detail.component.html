@@ -1,0 +1,24 @@
+<div *ngIf="light">
+
+  <h2>{{light.name | uppercase}} Details</h2>
+  <div><span>Pin id: </span>{{light.id}}</div>
+  <div>
+    <label> name:
+      <input [(ngModel)]="light.name" placeholder="name" />
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+  <button (click)="save()">save</button>
+</div>
+
+<div *ngIf="switch">
+
+<h2>{{light.state | uppercase}} Details</h2>
+<div><span>Pin id: </span>{{light.name}}</div>
+<div>
+  <label>state:
+    <input [(ngModel)]="light.state" placeholder="state" />
+  </label>
+</div>
+
+</div>
