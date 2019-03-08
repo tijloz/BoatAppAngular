@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Light } from '../lights';
-import { LightService } from '../light.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {Light} from '../lights';
+import {LightService} from '../light.service';
 
 @Component({
   selector: 'app-lights',
@@ -8,19 +8,18 @@ import { LightService } from '../light.service';
   styleUrls: ['./lights.component.scss']
 })
 export class LightsComponent implements OnInit {
-
+  @Input() switch: Light;
+  @Input() light: Light;
   switchedLight: Light;
-  selectedLight: Light;
   lights: Light[];
 
-  constructor(private lightService: LightService) { }
+  constructor(
+    private lightService: LightService,
+  ) {
+  }
 
   ngOnInit() {
     this.getLights();
-  }
-
-  onSelect(light: Light): void {
-    this.selectedLight = light;
   }
 
   getLights(): void {
@@ -29,8 +28,17 @@ export class LightsComponent implements OnInit {
   }
 
   onSwitch(light: Light): void {
-     this.switchedLight = light;
+
+
+    if (light.state) {
+      light.state = false;
+
+      console.log('Shit happened...');
+      console.log("Requesting light off");
+    } else if (!light.state) {
+      light.state = true;
+      console.log("Shit happened...");
+      console.log("Requesting light on");
+    }
   }
-
-
 }

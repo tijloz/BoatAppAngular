@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Light } from '../lights';
 import { LightService } from '../light.service';
-
+import {ActivatedRoute} from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-light-edit',
@@ -11,7 +12,10 @@ import { LightService } from '../light.service';
 export class LightEditComponent implements OnInit {
   lights: Light[];
 
-  constructor(private lightService: LightService) { }
+  constructor(private route: ActivatedRoute,
+              private lightService: LightService,
+              private location: Location
+  ) { }
 
   ngOnInit() {
     this.getLights();
@@ -34,5 +38,14 @@ export class LightEditComponent implements OnInit {
   delete(light: Light): void {
     this.lights = this.lights.filter(h => h !== light);
     this.lightService.deleteLight(light).subscribe();
+  }
+
+  // save(): void {
+  //   this.lightService.updateLight(this.light)
+  //     .subscribe(() => this.goBack());
+  // }
+
+  goBack(): void {
+    this.location.back();
   }
 }

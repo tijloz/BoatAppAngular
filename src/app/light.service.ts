@@ -32,7 +32,7 @@ export class LightService {
   getLight(id: number): Observable<Light> {
     const url = `${this.lightsUrl}/${id}`;
     return this.http.get<Light>(url).pipe(
-      tap(_ => this.log(`fetched light id=${id}`)),
+      // tap(_ => this.log(`fetched light id=${id}`)),
       catchError(this.handleError<Light>(`getLight id=${id}`))
     );
   }

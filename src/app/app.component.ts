@@ -8,8 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 })
 export class AppComponent {
   navLinks = [
-    { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'home', label: 'Home' },
+    { path: 'home', redirectTo: '/home', label: 'Home' },
     { path: 'lights', label: 'Lights' },
     { path: 'protection', label: 'Protection'},
     { path: 'settings', label: 'Settings'}

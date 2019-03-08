@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
+
 
 import { Light } from '../lights';
 import { LightService } from '../light.service';
@@ -16,8 +16,7 @@ export class LightDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private lightService: LightService,
-    private location: Location
+    private lightService: LightService
   ) { }
 
   ngOnInit() {
@@ -28,14 +27,5 @@ export class LightDetailComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.lightService.getLight(id)
       .subscribe(light => this.light = light);
-  }
-
-  goBack(): void {
-    this.location.back();
-  }
-
-  save(): void {
-    this.lightService.updateLight(this.light)
-      .subscribe(() => this.goBack());
   }
 }

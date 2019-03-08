@@ -6,16 +6,11 @@
     <span class="badge">{{light.state}}</span> {{light.name}}
   </li>
 </ul>
+<div *ngIf="switch">
 
 
-<!--<h2>Lights</h2>-->
-<!--<ul class="lights">-->
-  <!--<li *ngFor="let light of lights"-->
-      <!--[class.selected]="light === selectedLight"-->
-      <!--(click)="onSelect(switch)">-->
-    <!--<span class="badge">{{light.state}}</span> {{light.name}}-->
-  <!--</li>-->
-<!--</ul>-->
+
+</div>
 
 
 <app-light-detail [switch]="switchedLight"></app-light-detail>
