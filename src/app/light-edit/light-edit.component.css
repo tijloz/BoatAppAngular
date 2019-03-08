@@ -1,19 +1,13 @@
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
-}
-
-.light-edit {
+/* HeroesComponent's private CSS styles */
+.lights {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
-
-.light-edit li {
-  cursor: pointer;
+.lights li {
   position: relative;
-  left: 0;
+  cursor: pointer;
   background-color: #EEE;
   margin: .5em;
   padding: .3em 0;
@@ -21,23 +15,25 @@
   border-radius: 4px;
 }
 
-.light-edit li.selected:hover {
-  background-color: #BBD8DC !important;
-  color: white;
-}
-
-.light-edit li:hover {
+.lights li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
 
-.light-edit .text {
+.lights a {
+  color: #888;
+  text-decoration: none;
   position: relative;
-  top: -3px;
+  display: block;
+  width: 250px;
 }
 
-.light-edit .badge {
+.lights a:hover {
+  color:#607D8B;
+}
+
+.lights .badge {
   display: inline-block;
   font-size: small;
   color: white;
@@ -48,6 +44,38 @@
   left: -1px;
   top: -4px;
   height: 1.8em;
+  min-width: 16px;
+  text-align: right;
   margin-right: .8em;
   border-radius: 4px 0 0 4px;
 }
+
+button {
+  background-color: #eee;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  cursor: hand;
+  font-family: Arial;
+}
+
+button:hover {
+  background-color: #cfd8dc;
+}
+
+button.delete {
+  position: relative;
+  left: 194px;
+  top: -32px;
+  background-color: gray !important;
+  color: white;
+}
+
+
+
+/*
+Copyright Google LLC. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+*/

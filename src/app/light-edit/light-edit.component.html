@@ -8,9 +8,7 @@
 <!--</ul>-->
 
 <div>
-  <label>Light name:
-    <input #lightName />
-  </label>
+  <input  #lightName value="Light name" onfocus="this.value=''" />
   <!-- (click) passes input value to add() and then clears the input -->
   <button (click)="add(lightName.value); lightName.value=''">
     add

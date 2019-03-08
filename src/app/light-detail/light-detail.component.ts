@@ -27,7 +27,7 @@ export class LightDetailComponent implements OnInit {
   getLight(): void {
     const id = +this.route.snapshot.paramMap.get('id');
     this.lightService.getLight(id)
-      .subscribe(hero => this.light = hero);
+      .subscribe(light => this.light = light);
   }
 
   goBack(): void {
