@@ -28,16 +28,11 @@ export class LightsComponent implements OnInit {
   }
 
   onSwitch(light: Light): void {
-
-
     if (light.state) {
       light.state = false;
-
-      console.log('Shit happened...');
       console.log("Requesting light off");
     } else if (!light.state) {
       light.state = true;
-      console.log("Shit happened...");
       console.log("Requesting light on");
     }
   }
