@@ -3,14 +3,14 @@
   color: white;
 }
 
-.lights {
+.light-edit {
   margin: 0 0 2em 0;
   list-style-type: none;
   padding: 0;
   width: 15em;
 }
 
-.lights li {
+.light-edit li {
   cursor: pointer;
   position: relative;
   left: 0;
@@ -21,23 +21,23 @@
   border-radius: 4px;
 }
 
-.lights li.selected:hover {
+.light-edit li.selected:hover {
   background-color: #BBD8DC !important;
   color: white;
 }
 
-.lights li:hover {
+.light-edit li:hover {
   color: #607D8B;
   background-color: #DDD;
   left: .1em;
 }
 
-.lights .text {
+.light-edit .text {
   position: relative;
   top: -3px;
 }
 
-.lights .badge {
+.light-edit .badge {
   display: inline-block;
   font-size: small;
   color: white;

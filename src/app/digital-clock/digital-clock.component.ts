@@ -16,7 +16,7 @@ export class DigitalClockComponent implements OnInit, OnDestroy {
   public meridian: string;
 
   @Input()
-  public displayDots: boolean = false;
+  public displayDots = false;
   public days: string[] = DAYS_SHORT;
   public timeFormatList: string[] = [];
   public subscriptions: Subscription[] = [];
