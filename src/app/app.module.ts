@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
-import {MatIconModule} from '@angular/material';
+import {MatButtonModule, MatIconModule} from '@angular/material';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -24,6 +24,7 @@ import 'hammerjs';
 import {MessagesComponent} from './messages/messages.component';
 import {DigitalClockComponent} from './digital-clock/digital-clock.component';
 import {UtilService} from './shared/services/util/util.service';
+import {NgxElectronModule } from 'ngx-electron';
 
 
 @NgModule({
@@ -44,6 +45,8 @@ import {UtilService} from './shared/services/util/util.service';
     AppRoutingModule,
     FormsModule,
     MatTabsModule,
+    MatButtonModule,
+    NgxElectronModule,
     MatIconModule,
     MatBadgeModule,
     BrowserAnimationsModule,

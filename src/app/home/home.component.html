@@ -1,11 +1,11 @@
-<!--const electron = require('electron');-->
-<!--const { ipcRenderer } = electron;-->
-
 <div class="content">
 
-  <button id="lightBtnOn" role="button">Light On</button>
-  <button id="lightBtnOff" role="button">Light Off</button>
+  <!--<button id="lightBtnOn" role="button" (click)="LightOn()">Light On</button>-->
+  <!--<button id="lightBtnOff" role="button" (click)="LightOff()">Light Off</button>-->
   <div class="bg"></div>
+
+  <button mat-raised-button color="primary" (click)="LightOn()">On</button>
+  <button mat-raised-button color="primary" (click)="LightOff()">Off</button>
 
 </div>
 
@@ -15,16 +15,6 @@
 
 <script>
 
-  document.getElementById("lightBtnOn").addEventListener("click", function () {
-    console.log("Requesting LED ON");
-    require('electron').ipcRenderer.send('lightChannel', {lightState:1});
 
-  });
-
-  document.getElementById("lightBtnOff").addEventListener("click", function () {
-    console.log("Requesting LED OFF");
-    require('electron').ipcRenderer.send('lightChannel', { lightState: 0 });
-
-  });
 
 </script>
