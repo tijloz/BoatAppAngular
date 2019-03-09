@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Light} from '../lights';
-import {LightService} from '../light.service';
+import { Component, Input, OnInit} from '@angular/core';
+import { Light } from '../lights';
+import { LightService } from '../light.service';
 import { ElectronService } from 'ngx-electron';
 
 @Component({
@@ -30,20 +30,20 @@ export class LightsComponent implements OnInit {
   }
 
   onSwitch(light: Light): void {
-    //light.state = !light.state;
+    // light.state = !light.state;
 
     // light.state = !light.state;
     // this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
     // console.log('Requesting light on');
 
-    if (light.state === true) {
+    if (light.state) {
       light.state = false;
-      console.log('Requesting light off');
       this._electronService.ipcRenderer.send('lightChannel', { lightState: 0 });
-    } else if (light.state === false) {
+      console.log('Requesting light off');
+    } else if (!light.state) {
       light.state = true;
-      console.log('Requesting light on');
       this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
+      console.log('Requesting light on');
     }
   }
 }
