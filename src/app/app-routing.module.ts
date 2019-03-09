@@ -6,6 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { HomeComponent } from './home/home.component';
 import { LightEditComponent } from './light-edit/light-edit.component';
 import { ProtectionEditComponent } from './protection-edit/protection-edit.component';
+import { TrackingComponent } from './tracking/tracking.component';
 
 const routes: Routes = [
 
@@ -16,6 +17,7 @@ const routes: Routes = [
 
   { path: 'light-edit', component: LightEditComponent },
   { path: 'protection-edit', component: ProtectionEditComponent },
+  { path: 'tracking', component: TrackingComponent },
   { path: '**', redirectTo: '/home', pathMatch: 'full' }
 
  ];

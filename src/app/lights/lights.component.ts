@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Light} from '../lights';
 import {LightService} from '../light.service';
+import { ElectronService } from 'ngx-electron';
 
 @Component({
   selector: 'app-lights',
@@ -15,6 +16,7 @@ export class LightsComponent implements OnInit {
 
   constructor(
     private lightService: LightService,
+    private _electronService: ElectronService
   ) {
   }
 
@@ -28,12 +30,20 @@ export class LightsComponent implements OnInit {
   }
 
   onSwitch(light: Light): void {
-    if (light.state) {
+    //light.state = !light.state;
+
+    // light.state = !light.state;
+    // this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
+    // console.log('Requesting light on');
+
+    if (light.state === true) {
       light.state = false;
-      console.log("Requesting light off");
-    } else if (!light.state) {
+      console.log('Requesting light off');
+      this._electronService.ipcRenderer.send('lightChannel', { lightState: 0 });
+    } else if (light.state === false) {
       light.state = true;
-      console.log("Requesting light on");
+      console.log('Requesting light on');
+      this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
     }
   }
 }

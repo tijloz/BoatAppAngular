@@ -18,13 +18,15 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import {InMemoryDataService} from './in-memory-data.service';
-
+import {AgmCoreModule} from '@agm/core';
 
 import 'hammerjs';
 import {MessagesComponent} from './messages/messages.component';
 import {DigitalClockComponent} from './digital-clock/digital-clock.component';
 import {UtilService} from './shared/services/util/util.service';
 import {NgxElectronModule } from 'ngx-electron';
+import { TrackingComponent } from './tracking/tracking.component';
+import { WifiComponent } from './wifi/wifi.component';
 
 
 @NgModule({
@@ -39,6 +41,8 @@ import {NgxElectronModule } from 'ngx-electron';
     ProtectionEditComponent,
     MessagesComponent,
     DigitalClockComponent,
+    TrackingComponent,
+    WifiComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,10 @@ import {NgxElectronModule } from 'ngx-electron';
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, {dataEncapsulation: false}
-    )
+    ),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDmeuRDj4XQR3MPTxaN7Wh1uaevNhKUATA'
+    })
   ],
   providers: [UtilService],
   bootstrap: [AppComponent]

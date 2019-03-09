@@ -10,7 +10,9 @@ export class SettingsComponent {
 
   navLinks = [
     { path: 'light-edit', label: 'Add / Remove a light',  },
-    { path: 'protection-edit', label: 'Add / Remove cathodic protection'}
+    { path: 'protection-edit', label: 'Add / Remove cathodic protection'},
+    { path: 'tracking', label: 'View map and enable tracking'}
+    // { path: 'wifi', label: 'WIFI configuration'}
   ];
 
 }
