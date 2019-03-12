@@ -21,16 +21,16 @@
     border-radius: 4px;
   }
 
-    .lights li.selected:hover {
-      background-color: #BBD8DC !important;
-      color: white;
-    }
+    //.lights li.selected:hover {
+    //  background-color: #BBD8DC !important;
+    //  color: white;
+    //}
 
-    .lights li:hover {
-      color: #607D8B;
-      background-color: #DDD;
-      left: .1em;
-    }
+    //.lights li:hover {
+    //  color: #607D8B;
+    //  background-color: #DDD;
+    //  left: .1em;
+    //}
 
   .lights .text {
     position: relative;
@@ -51,3 +51,57 @@
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
   }
+
+
+
+.internalRow {
+  display: flex;
+  width: 40vw;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+  border-radius: 4px 0 0 4px;
+  background-color: DDD;
+  margin-bottom: 1vh;
+  justify-content: space-between;
+  font-family: 'Playfair Display', serif;
+
+}
+.newBadge {
+  background-color: #BBD8DC;
+  min-width: 35px;
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-left: 10px;
+  border-radius: 4px 0 0 4px;
+}
+
+//.internalRow div.selected:hover {
+//  background-color: #BBD8DC !important;
+//  color: white;
+//}
+//
+//.internalRow div:hover {
+//  color: #607D8B;
+//  background-color: #DDD;
+//  left: .1em;
+//}
+
+
+.internalRow:active  {
+  background-color: pink;
+  border-radius: 4px 0 0 4px;
+}
+.lightName {
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-left: 10px;
+
+}
+.internalRow:first-child {
+  margin-right: auto;
+}

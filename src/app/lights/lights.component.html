@@ -1,14 +1,60 @@
 <h2>Lights</h2>
-<ul class="lights">
-  <li *ngFor="let light of lights"
-      [class.switched]="light === switchedLight"
-      (click)="onSwitch(light)">
-    <span class="badge">{{light.state}}</span> {{light.name}}
-  </li>
-</ul>
+
+<div class="lights">
+
+  <!--<div class="displayInline" *ngFor="let light of lights">-->
+  <!--<li class=""-->
+  <!--[class.switched]="light === switchedLight"-->
+  <!--(click)="onSwitch(light)">-->
+  <!--<span class="badge">{{light.state}}</span> {{light.name}}-->
+  <!--<span class="">-->
+  <!--<button mat-icon-button>-->
+  <!--<mat-icon aria-label="Light Options" (click)="info(light)">info</mat-icon>-->
+  <!--</button>-->
+  <!--</span>-->
+
+  <!--</li>-->
+  <!--<button class="info" title="light info"-->
+  <!--&gt;i-->
+  <!--</button>-->
+
+
+  <div class="" *ngFor="let light of lights">
+    <div class="internalRow"
+         [class.switched]="light === switchedLight"
+         (click)="onSwitch(light)"
+
+    >
+
+
+
+      <div class="newBadge">
+
+        <mat-icon *ngIf="light.state">brightness_7</mat-icon>
+        <mat-icon *ngIf="!light.state">brightness_1</mat-icon>
+
+      </div>
+
+      <div class="lightName">{{light.name}}</div>
+
+
+
+      <div class="">
+        <button (click)="showOptions(light)" mat-icon-button>
+          <mat-icon aria-label="Light Options">info</mat-icon>
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>
 <div *ngIf="switch">
 
 </div>
 
 
-<app-light-detail [switch]="switchedLight"></app-light-detail>
+<app-light-detail [light]="switchedLight"></app-light-detail>

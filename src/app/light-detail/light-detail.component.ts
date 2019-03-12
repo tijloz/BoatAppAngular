@@ -11,7 +11,7 @@ import { LightService } from '../light.service';
 })
 export class LightDetailComponent implements OnInit {
   @Input() light: Light;
-  @Input() switch: Light;
+  // @Input() switch: Light;
 
 
   constructor(
@@ -20,7 +20,12 @@ export class LightDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getLight();
+    // this.getLight();
+  }
+
+  close(): void {
+    this.light = null;
+
   }
 
   getLight(): void {

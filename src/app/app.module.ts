@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatSliderModule} from '@angular/material';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -52,6 +52,8 @@ import { WifiComponent } from './wifi/wifi.component';
     MatButtonModule,
     NgxElectronModule,
     MatIconModule,
+    MatCardModule,
+    MatSliderModule,
     MatBadgeModule,
     BrowserAnimationsModule,
     HttpClientModule,

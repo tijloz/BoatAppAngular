@@ -10,7 +10,7 @@ const port = new SerialPort(osSwap(), {
 function osSwap() {
   switch (osPlatform) {
     case 'win32':
-      return 'com3';
+      return 'COM3';
       break;
     case 'linux':
       return '/dev/ttyACM0';
@@ -54,5 +54,12 @@ ipcMain.on('lightChannel', function (event, light) {
     port.write('ON' + '\n');
   } else {
     port.write('OFF' + '\n');
+  }
+  if (light.lightBrightness === "Bright") {
+    port.write('Bright');
+  } else if (light.lightBrightness === "Bright"){
+    port.write('Normal');
+  } else if (light.lightBrightness === "Dark"){
+    port.write('Dark');
   }
 });

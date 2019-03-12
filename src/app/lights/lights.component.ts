@@ -1,7 +1,7 @@
-import { Component, Input, OnInit} from '@angular/core';
-import { Light } from '../lights';
-import { LightService } from '../light.service';
-import { ElectronService } from 'ngx-electron';
+import {Component, Input, OnInit} from '@angular/core';
+import {Light} from '../lights';
+import {LightService} from '../light.service';
+import {ElectronService} from 'ngx-electron';
 
 @Component({
   selector: 'app-lights',
@@ -11,6 +11,7 @@ import { ElectronService } from 'ngx-electron';
 export class LightsComponent implements OnInit {
   @Input() switch: Light;
   @Input() light: Light;
+  @Input() info: Light;
   switchedLight: Light;
   lights: Light[];
 
@@ -29,6 +30,11 @@ export class LightsComponent implements OnInit {
       .subscribe(lights => this.lights = lights);
   }
 
+  showOptions(light: Light): void {
+    this.switchedLight = light;
+
+  }
+
   onSwitch(light: Light): void {
     // light.state = !light.state;
 
@@ -37,13 +43,16 @@ export class LightsComponent implements OnInit {
     // console.log('Requesting light on');
 
     if (light.state) {
-      light.state = false;
-      this._electronService.ipcRenderer.send('lightChannel', { lightState: 0 });
       console.log('Requesting light off');
-    } else if (!light.state) {
-      light.state = true;
-      this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
+      light.state = false;
+      this._electronService.ipcRenderer.send('lightChannel', {lightState: 0});
+
+    } else {
       console.log('Requesting light on');
+      light.state = true;
+      this._electronService.ipcRenderer.send('lightChannel', {lightState: 1});
     }
+
+    this._electronService.ipcRenderer.send('lightChannel', {lightBrightness: 'Bright'});
   }
 }
