@@ -1,11 +1,19 @@
 const electron = require('electron');
-const SerialPort = require('serialport');
 const {app, BrowserWindow, ipcMain} = electron;
 const os = require('os');
 const osPlatform = os.platform();
+const SerialPort = require('serialport');
+const Readline = require('@serialport/parser-readline');
+const parser = new Readline();
+// port.pipe(parser);
+
+// const parser = osSwap().pipe(new Readline({ delimiter: '\r\n' }));
 const port = new SerialPort(osSwap(), {
   baudRate: 9200
 });
+
+
+
 
 function osSwap() {
   switch (osPlatform) {
@@ -16,6 +24,11 @@ function osSwap() {
       return '/dev/ttyACM0';
   }
 }
+
+function timeoutFunc() {
+  console.log('Problem connecting to protection device!');
+}
+setInterval(timeoutFunc, 30000);
 
 // Listen for app to be ready
 app.on('ready', function () {
@@ -47,19 +60,28 @@ app.on('ready', function () {
   }
 );
 
+/*
+A function for writing a light message to the slave board
+ */
 ipcMain.on('lightChannel', function (event, light) {
   console.log(`Light state is: ${light.lightState}`);
+  let control = '!';
+  port.write(control + light.lightDevice + light.lightTimer + light.lightChan + light.lightState + light.lightBrightness + '\n');
+});
 
-  if (light.lightState) {
-    port.write('ON' + '\n');
-  } else {
-    port.write('OFF' + '\n');
-  }
-  if (light.lightBrightness === "Bright") {
-    port.write('Bright');
-  } else if (light.lightBrightness === "Bright"){
-    port.write('Normal');
-  } else if (light.lightBrightness === "Dark"){
-    port.write('Dark');
+
+/*
+A function for listening to messages from the slave board
+ */
+parser.on('data', function(){
+  console.log(data);
+  switch (data) {
+    case '!Protection 1 Alive' :
+      clearInterval(timeoutFunc);
+      setInterval(timeoutFunc, 30000);
+      console.log("timeout reset");
+
+    case '!Voltage':
+      console.log("dump voltage box reset");
   }
 });

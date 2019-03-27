@@ -28,17 +28,14 @@
     </label>
 
     <h3>Current Brightness</h3>
-    <mat-slider [(ngModel)]="light.brightness" [max]="255"
+    <mat-slider [(ngModel)]="light.brightness" [max]="3"
                 [min]="1"
-                [tickInterval]="20"></mat-slider>
-
-
-
+                [tickInterval]="1"
+    ></mat-slider>
 
   </mat-card-content>
   <mat-card-actions>
     <button (click)="close()" mat-button>Close</button>
-    <button (click)="save()" mat-button>Save</button>
   </mat-card-actions>
 </mat-card>
 

@@ -6,12 +6,11 @@ import {ElectronService} from 'ngx-electron';
 @Component({
   selector: 'app-lights',
   templateUrl: './lights.component.html',
-  styleUrls: ['./lights.component.scss']
+  styleUrls: ['./styles.scss']
 })
 export class LightsComponent implements OnInit {
   @Input() switch: Light;
   @Input() light: Light;
-  @Input() info: Light;
   switchedLight: Light;
   lights: Light[];
 
@@ -42,17 +41,27 @@ export class LightsComponent implements OnInit {
     // this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
     // console.log('Requesting light on');
 
-    if (light.state) {
+    if (light.state === 1) {
       console.log('Requesting light off');
-      light.state = false;
-      this._electronService.ipcRenderer.send('lightChannel', {lightState: 0});
+      light.state = 0;
+      this._electronService.ipcRenderer.send('lightChannel', {
+        lightDevice: 1,
+        lightTimer: light.timer,
+        lightChan: light.channel,
+        lightState: 0,
+        lightBrightness: light.brightness
+      });
 
     } else {
       console.log('Requesting light on');
-      light.state = true;
-      this._electronService.ipcRenderer.send('lightChannel', {lightState: 1});
+      light.state = 1;
+      this._electronService.ipcRenderer.send('lightChannel', {
+        lightDevice: 1,
+        lightTimer: light.timer,
+        lightChan: light.channel,
+        lightState: 0,
+        lightBrightness: light.brightness
+      });
     }
-
-    this._electronService.ipcRenderer.send('lightChannel', {lightBrightness: 'Bright'});
   }
 }

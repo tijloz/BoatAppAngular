@@ -24,6 +24,89 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 
+.selected {
+  background-color: #CFD8DC !important;
+  color: white;
+}
+
+.device {
+  margin: 0 0 2em 0;
+  list-style-type: none;
+  padding: 0;
+  width: 15em;
+}
+
+.device li {
+  cursor: pointer;
+  position: relative;
+  left: 0;
+  background-color: #EEE;
+  margin: .5em;
+  padding: .3em 0;
+  height: 1.6em;
+  border-radius: 4px;
+}
+
+.device .text {
+  position: relative;
+  top: -3px;
+}
+
+.device .badge {
+  display: inline-block;
+  font-size: small;
+  color: white;
+  padding: 0.8em 0.7em 0 0.7em;
+  background-color: #607D8B;
+  line-height: 1em;
+  position: relative;
+  left: -1px;
+  top: -4px;
+  height: 1.8em;
+  margin-right: .8em;
+  border-radius: 4px 0 0 4px;
+}
+
+
+
+.internalRow {
+  display: flex;
+  width: 40vw;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+  border-radius: 4px 0 0 4px;
+  //background-color: DDD;
+  margin-bottom: 1vh;
+  justify-content: space-between;
+  font-family: 'Playfair Display', serif;
+
+}
+.newBadge {
+  background-color: #BBD8DC;
+  min-width: 35px;
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-left: 10px;
+  border-radius: 4px 0 0 4px;
+}
+
+.internalRow:active  {
+  background-color: pink;
+}
+.lightName {
+  padding-top: 10px;
+  padding-right: 25px;
+  padding-left: 10px;
+
+}
+.internalRow:first-child {
+  margin-right: auto;
+}
 
 
 

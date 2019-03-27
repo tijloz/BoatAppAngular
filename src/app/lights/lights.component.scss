@@ -65,7 +65,7 @@
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome and Opera */
   border-radius: 4px 0 0 4px;
-  background-color: DDD;
+  //background-color: DDD;
   margin-bottom: 1vh;
   justify-content: space-between;
   font-family: 'Playfair Display', serif;
@@ -94,7 +94,6 @@
 
 .internalRow:active  {
   background-color: pink;
-  border-radius: 4px 0 0 4px;
 }
 .lightName {
   padding-top: 10px;

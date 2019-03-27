@@ -27,6 +27,7 @@ import {UtilService} from './shared/services/util/util.service';
 import {NgxElectronModule } from 'ngx-electron';
 import { TrackingComponent } from './tracking/tracking.component';
 import { WifiComponent } from './wifi/wifi.component';
+import { ProtectionDetailComponent } from './protection-detail/protection-detail.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { WifiComponent } from './wifi/wifi.component';
     DigitalClockComponent,
     TrackingComponent,
     WifiComponent,
+    ProtectionDetailComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,39 @@
-<p>
-  protection works!
-</p>
+<h2>Cathodic Protection</h2>
+
+<div class="device">
+  <div class="" *ngFor="let protection of protections">
+    <div class="internalRow"
+         [class.switched]="protection === switchedProtection"
+         (click)="onSwitch(protection)"
+
+    >
+
+
+
+      <div class="newBadge">
+
+        <mat-icon *ngIf="protection.state">brightness_7</mat-icon>
+        <mat-icon *ngIf="!protection.state">brightness_1</mat-icon>
+
+      </div>
+
+      <div class="deviceName">{{protection.name}}</div>
+
+
+
+      <div class="">
+        <button (click)="showOptions(protection)" mat-icon-button>
+          <mat-icon aria-label="Protection Options">info</mat-icon>
+        </button>
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+</div>
+<div *ngIf="switch">
+
+</div>
