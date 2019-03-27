@@ -6,7 +6,7 @@
   "scripts": {
     "start": "electron .",
     "prepack": "build --dir",
-    "dist": "build --arm64",
+    "dist": "build --x64",
     "install": "electron-rebuild",
     "electron": "ng build --base-href ./ && electron ."
   },

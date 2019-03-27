@@ -1,7 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Protection } from '../protections';
-import { ProtectionService } from '../protection.service';
+import {Component, OnInit, Input} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Protection} from '../protections';
+import {ProtectionService} from '../protection.service';
 
 @Component({
   selector: 'app-protection-detail',
@@ -14,9 +14,11 @@ export class ProtectionDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private protectionService: ProtectionService
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
+
   }
 
   close(): void {

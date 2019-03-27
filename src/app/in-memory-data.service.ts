@@ -19,15 +19,7 @@ export class InMemoryDataService implements InMemoryDbService {
       {id: 7, name: 'Ride', state: 0, brightness: 0, Timer: 0, Channel: 0}
     ];
     return {lights};
-
-    const protections = [
-      {id: 0, name: 'Anchor', state: 0},
-      {id: 1, name: 'Outdrive', state: 0, },
-      {id: 2, name: 'Prop', state: 0}
-    ];
-    return {protections};
   }
-
 
   // Overrides the genId method to ensure that a hero always has an id.
   // If the heroes array is empty,

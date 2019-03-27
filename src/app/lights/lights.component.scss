@@ -1,106 +1,106 @@
-.selected {
-  background-color: #CFD8DC !important;
-  color: white;
-}
-
-.lights {
-  margin: 0 0 2em 0;
-  list-style-type: none;
-  padding: 0;
-  width: 15em;
-}
-
-  .lights li {
-    cursor: pointer;
-    position: relative;
-    left: 0;
-    background-color: #EEE;
-    margin: .5em;
-    padding: .3em 0;
-    height: 1.6em;
-    border-radius: 4px;
-  }
-
-    //.lights li.selected:hover {
-    //  background-color: #BBD8DC !important;
-    //  color: white;
-    //}
-
-    //.lights li:hover {
-    //  color: #607D8B;
-    //  background-color: #DDD;
-    //  left: .1em;
-    //}
-
-  .lights .text {
-    position: relative;
-    top: -3px;
-  }
-
-  .lights .badge {
-    display: inline-block;
-    font-size: small;
-    color: white;
-    padding: 0.8em 0.7em 0 0.7em;
-    background-color: #607D8B;
-    line-height: 1em;
-    position: relative;
-    left: -1px;
-    top: -4px;
-    height: 1.8em;
-    margin-right: .8em;
-    border-radius: 4px 0 0 4px;
-  }
-
-
-
-.internalRow {
-  display: flex;
-  width: 40vw;
-  -webkit-touch-callout: none; /* iOS Safari */
-  -webkit-user-select: none; /* Safari */
-  -khtml-user-select: none; /* Konqueror HTML */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-  border-radius: 4px 0 0 4px;
-  //background-color: DDD;
-  margin-bottom: 1vh;
-  justify-content: space-between;
-  font-family: 'Playfair Display', serif;
-
-}
-.newBadge {
-  background-color: #BBD8DC;
-  min-width: 35px;
-  padding-top: 10px;
-  padding-right: 25px;
-  padding-left: 10px;
-  border-radius: 4px 0 0 4px;
-}
-
-//.internalRow div.selected:hover {
-//  background-color: #BBD8DC !important;
+//.selected {
+//  background-color: #CFD8DC !important;
 //  color: white;
 //}
 //
-//.internalRow div:hover {
-//  color: #607D8B;
-//  background-color: #DDD;
-//  left: .1em;
+// .device {
+//  margin: 0 0 2em 0;
+//  list-style-type: none;
+//  padding: 0;
+//  width: 15em;
 //}
-
-
-.internalRow:active  {
-  background-color: pink;
-}
-.lightName {
-  padding-top: 10px;
-  padding-right: 25px;
-  padding-left: 10px;
-
-}
-.internalRow:first-child {
-  margin-right: auto;
-}
+//
+//  .device li {
+//    cursor: pointer;
+//    position: relative;
+//    left: 0;
+//    background-color: #EEE;
+//    margin: .5em;
+//    padding: .3em 0;
+//    height: 1.6em;
+//    border-radius: 4px;
+//  }
+//
+//    //.lights li.selected:hover {
+//    //  background-color: #BBD8DC !important;
+//    //  color: white;
+//    //}
+//
+//    //.lights li:hover {
+//    //  color: #607D8B;
+//    //  background-color: #DDD;
+//    //  left: .1em;
+//    //}
+//
+//  .lights .text {
+//    position: relative;
+//    top: -3px;
+//  }
+//
+//  .device .badge {
+//    display: inline-block;
+//    font-size: small;
+//    color: white;
+//    padding: 0.8em 0.7em 0 0.7em;
+//    background-color: #607D8B;
+//    line-height: 1em;
+//    position: relative;
+//    left: -1px;
+//    top: -4px;
+//    height: 1.8em;
+//    margin-right: .8em;
+//    border-radius: 4px 0 0 4px;
+//  }
+//
+//
+//
+//.internalRow {
+//  display: flex;
+//  width: 40vw;
+//  -webkit-touch-callout: none; /* iOS Safari */
+//  -webkit-user-select: none; /* Safari */
+//  -khtml-user-select: none; /* Konqueror HTML */
+//  -moz-user-select: none; /* Firefox */
+//  -ms-user-select: none; /* Internet Explorer/Edge */
+//  user-select: none; /* Non-prefixed version, currently
+//                                  supported by Chrome and Opera */
+//  border-radius: 4px 0 0 4px;
+//  //background-color: DDD;
+//  margin-bottom: 1vh;
+//  justify-content: space-between;
+//  font-family: 'Playfair Display', serif;
+//
+//}
+//.newBadge {
+//  background-color: #BBD8DC;
+//  min-width: 35px;
+//  padding-top: 10px;
+//  padding-right: 25px;
+//  padding-left: 10px;
+//  border-radius: 4px 0 0 4px;
+//}
+//
+////.internalRow div.selected:hover {
+////  background-color: #BBD8DC !important;
+////  color: white;
+////}
+////
+////.internalRow div:hover {
+////  color: #607D8B;
+////  background-color: #DDD;
+////  left: .1em;
+////}
+//
+//
+//.internalRow:active  {
+//  background-color: pink;
+//}
+//.deviceName {
+//  padding-top: 10px;
+//  padding-right: 25px;
+//  padding-left: 10px;
+//
+//}
+//.internalRow:first-child {
+//  margin-right: auto;
+//}

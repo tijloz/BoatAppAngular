@@ -6,7 +6,7 @@ import {ElectronService} from 'ngx-electron';
 @Component({
   selector: 'app-lights',
   templateUrl: './lights.component.html',
-  styleUrls: ['./styles.scss']
+  styleUrls: ['./lights.component.scss']
 })
 export class LightsComponent implements OnInit {
   @Input() switch: Light;

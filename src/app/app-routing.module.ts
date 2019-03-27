@@ -12,7 +12,7 @@ const routes: Routes = [
 
   { path: 'home', component: HomeComponent },
   { path: 'lights', component: LightsComponent },
-  { path: 'protections', component: ProtectionComponent },
+  { path: 'protection', component: ProtectionComponent },
   { path: 'settings', component: SettingsComponent },
 
   { path: 'light-edit', component: LightEditComponent },

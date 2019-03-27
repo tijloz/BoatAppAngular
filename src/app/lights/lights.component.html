@@ -1,32 +1,11 @@
 <h2>Lights</h2>
 
 <div class="device">
-
-  <!--<div class="displayInline" *ngFor="let light of lights">-->
-  <!--<li class=""-->
-  <!--[class.switched]="light === switchedLight"-->
-  <!--(click)="onSwitch(light)">-->
-  <!--<span class="badge">{{light.state}}</span> {{light.name}}-->
-  <!--<span class="">-->
-  <!--<button mat-icon-button>-->
-  <!--<mat-icon aria-label="Light Options" (click)="info(light)">info</mat-icon>-->
-  <!--</button>-->
-  <!--</span>-->
-
-  <!--</li>-->
-  <!--<button class="info" title="light info"-->
-  <!--&gt;i-->
-  <!--</button>-->
-
-
   <div class="" *ngFor="let light of lights">
     <div class="internalRow"
          [class.switched]="light === switchedLight"
          (click)="onSwitch(light)"
-
     >
-
-
 
       <div class="newBadge">
 
@@ -36,8 +15,6 @@
       </div>
 
       <div class="deviceName">{{light.name}}</div>
-
-
 
       <div class="">
         <button (click)="showOptions(light)" mat-icon-button>

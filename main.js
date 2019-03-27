@@ -9,17 +9,22 @@ const parser = new Readline();
 
 // const parser = osSwap().pipe(new Readline({ delimiter: '\r\n' }));
 const port = new SerialPort(osSwap(), {
-  baudRate: 9200
+  baudRate: 9600
+}, err => {
+  console.error(`Failed to open serial port`);
+  console.error(err);
+
+
 });
 
-
+let mainWindow;
 
 
 function osSwap() {
   switch (osPlatform) {
     case 'win32':
-      return 'COM3';
-      break;
+      return 'COM4';
+
     case 'linux':
       return '/dev/ttyACM0';
   }
@@ -34,7 +39,7 @@ setInterval(timeoutFunc, 30000);
 app.on('ready', function () {
 
     /*      Create the main window      */
-    let mainWindow = new BrowserWindow({
+    mainWindow = new BrowserWindow({
       show: false,
       frame: true,
       //kiosk: true,
@@ -80,8 +85,11 @@ parser.on('data', function(){
       clearInterval(timeoutFunc);
       setInterval(timeoutFunc, 30000);
       console.log("timeout reset");
+      break;
 
     case '!Voltage':
       console.log("dump voltage box reset");
+      mainWindow.webContents.send('serialOperations-openPort', {success: true});
   }
+
 });
