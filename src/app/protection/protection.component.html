@@ -2,26 +2,20 @@
 
 <div class="device">
   <div class="" *ngFor="let protection of protections">
-    <div class="internalRow"
+    <div class="selectionList_internalRow"
          [class.switched]="protection === switchedProtection"
-         (click)="onSwitch(protection)"
+         (click)="onSwitch(protection)">
 
-    >
-
-
-
-      <div class="newBadge">
-
+      <div class="selectionList_newBadge">
         <mat-icon *ngIf="protection.state">brightness_7</mat-icon>
         <mat-icon *ngIf="!protection.state">brightness_1</mat-icon>
-
       </div>
 
-      <div class="deviceName">{{protection.name}}</div>
+      <div class="selectionList_deviceName">{{protection.name}}</div>
 
 
 
-      <div class="">
+      <div>
         <button (click)="showOptions(protection)" mat-icon-button>
           <mat-icon aria-label="Protection Options">info</mat-icon>
         </button>
@@ -37,3 +31,5 @@
 <div *ngIf="switch">
 
 </div>
+
+<app-protection-detail [protection]="switchedProtection"></app-protection-detail>

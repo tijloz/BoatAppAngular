@@ -1,3 +1,39 @@
-<p>
-  protection-detail works!
-</p>
+<mat-card *ngIf="protection" class="protectionDetailCardContainer">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{protection.name | uppercase}} Details</mat-card-title>
+    <mat-card-subtitle>Pin id: {{protection.id}}</mat-card-subtitle>
+  </mat-card-header>
+
+
+  <mat-card-content class="protectionDetails">
+
+    <div class="protectionDetails_topLevel">
+      <label> Name:
+        <input [(ngModel)]="protection.name" placeholder="name"/>
+      </label>
+    </div>
+
+
+    <mat-divider [inset]="true"></mat-divider>
+
+    <div class="protectionDetails_electricalDetails">
+      <div class="protectionDetails_electricalDetails-spec">
+        <label> Anode voltage:
+          <input [(ngModel)]="protection.voltage" placeholder="voltage"/>
+        </label>
+      </div>
+      <div class="protectionDetails_electricalDetails-spec">
+        <label> Cathode current:
+          <input [(ngModel)]="protection.current" placeholder="current"/>
+        </label>
+      </div>
+    </div>
+
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button (click)="close()"  mat-raised-button>Close</button>
+  </mat-card-actions>
+
+</mat-card>

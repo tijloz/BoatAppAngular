@@ -1,0 +1,23 @@
+.protectionDetails {
+  width: 85%;
+  margin: auto;
+  margin-top: 25px;
+
+
+  &_topLevel {
+    margin-bottom: 25px;
+  }
+
+ &_electricalDetails {
+   margin-top: 25px;
+   display: flex;
+   justify-content: space-around;
+ }
+
+}
+
+// Only make the card 80% of its parents width
+.protectionDetailCardContainer {
+  width: 80%;
+  margin: auto;
+}

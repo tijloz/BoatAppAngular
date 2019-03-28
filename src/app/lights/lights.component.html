@@ -2,21 +2,19 @@
 
 <div class="device">
   <div class="" *ngFor="let light of lights">
-    <div class="internalRow"
+    <div class="selectionList_internalRow"
          [class.switched]="light === switchedLight"
          (click)="onSwitch(light)"
     >
 
-      <div class="newBadge">
-
+      <div class="selectionList_newBadge">
         <mat-icon *ngIf="light.state">brightness_7</mat-icon>
         <mat-icon *ngIf="!light.state">brightness_1</mat-icon>
-
       </div>
 
-      <div class="deviceName">{{light.name}}</div>
+      <div class="selectionList_deviceName">{{light.name}}</div>
 
-      <div class="">
+      <div>
         <button (click)="showOptions(light)" mat-icon-button>
           <mat-icon aria-label="Light Options">info</mat-icon>
         </button>

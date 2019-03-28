@@ -6,7 +6,7 @@ import {ProtectionService} from '../protection.service';
 @Component({
   selector: 'app-protection-detail',
   templateUrl: './protection-detail.component.html',
-  styleUrls: ['./protection-detail.component.css']
+  styleUrls: ['./protection-detail.component.scss']
 })
 export class ProtectionDetailComponent implements OnInit {
   @Input() protection: Protection;

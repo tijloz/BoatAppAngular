@@ -3,7 +3,8 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatBadgeModule} from '@angular/material/badge';
-import {MatButtonModule, MatCardModule, MatIconModule, MatSliderModule} from '@angular/material';
+import {MatButtonModule, MatCardModule, MatIconModule, MatSliderModule, MatSnackBarModule} from '@angular/material';
+import {MatDividerModule} from '@angular/material/divider';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -57,6 +58,8 @@ import { ProtectionDetailComponent } from './protection-detail/protection-detail
     MatCardModule,
     MatSliderModule,
     MatBadgeModule,
+    MatDividerModule,
+    MatSnackBarModule,
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

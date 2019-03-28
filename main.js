@@ -4,21 +4,47 @@ const os = require('os');
 const osPlatform = os.platform();
 const SerialPort = require('serialport');
 const Readline = require('@serialport/parser-readline');
+
 const parser = new Readline();
-// port.pipe(parser);
+let lastHeartBeatTime;
 
-// const parser = osSwap().pipe(new Readline({ delimiter: '\r\n' }));
-const port = new SerialPort(osSwap(), {
-  baudRate: 9600
-}, err => {
-  console.error(`Failed to open serial port`);
-  console.error(err);
+const heartBeatTimeOut = 30000;
+let port;
+let portConnected = false;
+let heartBeatDetectionRunning = false;
+
+port = getPort();
+
+/**
+ * getPort
+ *
+ * Attempts to open a new serial port
+ * @returns {SerialPort|SerialPort}
+ */
+function getPort(){
+  return port = new SerialPort(osSwap(), {baudRate: 9600}, function (err) {
+    if (err) {
+      console.error('Failed to open serial port');
+      return console.log('Error: ', err.message)
+    }
+
+    console.log('Serial port opened successfully');
+    portConnected = true;
+
+    // Set up the parser
+    port.pipe(parser);
+
+    // Set up heartbeat detection
+    startHeartBeatDetection();
+
+  });
+
+}
 
 
-});
+
 
 let mainWindow;
-
 
 function osSwap() {
   switch (osPlatform) {
@@ -30,10 +56,47 @@ function osSwap() {
   }
 }
 
-function timeoutFunc() {
-  console.log('Problem connecting to protection device!');
+function startHeartBeatDetection() {
+  if (heartBeatDetectionRunning) {
+    return;
+  }
+
+  // Don't make a new subscription during lifetime of app
+  heartBeatDetectionRunning = true;
+
+  lastHeartBeatTime = new Date();
+
+  setInterval(() => {
+    const dateNow = new Date();
+
+    if (dateNow - lastHeartBeatTime > heartBeatTimeOut) {
+      portConnected = false;
+      console.error('Device is disconnected');
+
+      // Attempt to open the serial port again
+      port = getPort();
+
+      // Call the Electron front end
+      mainWindow.webContents.send('serialHeatBeat', {eventType: 'disconnect'});
+
+    }
+  }, 30000);
+
 }
-setInterval(timeoutFunc, 30000);
+
+/**
+ *
+ */
+function heartBeatDetected() {
+  if (!portConnected) {
+    portConnected = true;
+    console.log('SerialPort Reconnected');
+    mainWindow.webContents.send('serialHeatBeat', {eventType: 'reconnect'});
+
+  }
+  lastHeartBeatTime = new Date();
+
+}
 
 // Listen for app to be ready
 app.on('ready', function () {
@@ -75,21 +138,28 @@ ipcMain.on('lightChannel', function (event, light) {
 });
 
 
-/*
-A function for listening to messages from the slave board
+/**
+ * Subscribes to messages from the slave board
  */
-parser.on('data', function(){
-  console.log(data);
-  switch (data) {
+parser.on('data', newLine => {
+  console.log('Received data on the serial port');
+  console.log(newLine);
+
+  switch (newLine) {
+
     case '!Protection 1 Alive' :
-      clearInterval(timeoutFunc);
-      setInterval(timeoutFunc, 30000);
-      console.log("timeout reset");
+      heartBeatDetected();
+      console.log("Heartbeat received on SerialPort");
       break;
 
     case '!Voltage':
       console.log("dump voltage box reset");
       mainWindow.webContents.send('serialOperations-openPort', {success: true});
+      break;
+
+    default:
+      console.error('Unable to decode the incoming data from serial port');
+
   }
 
 });

@@ -22,7 +22,7 @@
 //body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
+@import "app/applicationStyles/selectionList";
 
 .selected {
   background-color: #CFD8DC !important;
@@ -106,9 +106,9 @@
   border-radius: 4px 0 0 4px;
 }
 
-.internalRow:active  {
-  background-color: pink;
-}
+//.internalRow:active  {
+//  background-color: pink;
+//}
 .deviceName {
   padding-top: 10px;
   padding-right: 25px;
