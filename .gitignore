@@ -1,7 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist
+# /dist  REMOVED SO TO ADD COMPILED OUTPUT AS EMBBDED PC HAS INSUFFICENT RAM TO COMPILE...
 /tmp
 /out-tsc
 

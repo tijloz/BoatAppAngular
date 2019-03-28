@@ -8,7 +8,8 @@
     "prepack": "build --dir",
     "dist": "build --x64",
     "install": "electron-rebuild",
-    "electron": "ng build --base-href ./ && electron ."
+    "electron": "ng build --base-href ./ && electron .",
+    "electron-only": " electron ."
   },
   "private": true,
   "dependencies": {
