@@ -145,7 +145,12 @@ parser.on('data', newLine => {
   console.log('Received data on the serial port');
   console.log(newLine);
 
-  switch (newLine) {
+  // find the hash
+
+  // take the opcode
+
+
+  switch (newLine) { //switch on opcode
 
     case '!Protection 1 Alive' :
       heartBeatDetected();
@@ -153,8 +158,13 @@ parser.on('data', newLine => {
       break;
 
     case '!Voltage':
-      console.log("dump voltage box reset");
-      mainWindow.webContents.send('serialOperations-openPort', {success: true});
+      console.log("dump voltage");
+      mainWindow.webContents.send('voltage', {success: true});
+      break;
+
+    case '!Current':
+      console.log("dump current");
+      mainWindow.webContents.send('current', {success: true});
       break;
 
     default:

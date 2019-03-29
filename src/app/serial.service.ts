@@ -29,10 +29,27 @@ export class SerialService {
             break;
           default:
             console.log('Could not decode serialHeatBeat message');
-
         }
       }
     );
   }
+
+  voltageListener() {
+    // Register a listener
+    this._electronService.ipcRenderer.on('serialVoltageOut', (event, message) => {
+        switch (message.eventType) {
+          case 'voltage':
+            console.log('Serial voltage message received');
+            break;
+          case 'current':
+            console.log('Serial voltage message received');
+            break;
+          default:
+            console.log('Could not decode serial voltage message');
+        }
+      }
+    );
+  }
+
 
 }

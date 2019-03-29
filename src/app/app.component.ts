@@ -10,10 +10,6 @@ export class AppComponent {
   constructor(private serialService: SerialService) {
   }
 
-  ngOnInit() {
-    this.serialService.disconnectListener();
-  }
-
 
   navLinks = [
     {path: 'home', redirectTo: '/home', label: 'Home', hasNotification: false},
@@ -21,5 +17,10 @@ export class AppComponent {
     {path: 'protection', label: 'Protection', hasNotification: false},
     {path: 'settings', label: 'Settings', hasNotification: true, notificationCount: 6}
   ];
+
+  ngOnInit() {
+    this.serialService.disconnectListener();
+    this.serialService.voltageListener();
+  }
 
 }
