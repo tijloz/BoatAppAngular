@@ -8,7 +8,7 @@
 
   <mat-card-content class="protectionDetails">
 
-    <div class="protectionDetails_topLevel">
+    <div class="protectionDetails_topLevel" (click)="setCurrentVoltageViewMode('off')">
       <label> Name:
         <input [(ngModel)]="protection.name" placeholder="name"/>
       </label>
@@ -18,14 +18,19 @@
     <mat-divider [inset]="true"></mat-divider>
 
     <div class="protectionDetails_electricalDetails">
-      <div class="protectionDetails_electricalDetails-spec">
+      <div class="protectionDetails_electricalDetails-spec" (click)="setCurrentVoltageViewMode('anode')">
         <label> Anode voltage:
-          <input [(ngModel)]="protection.voltage" placeholder="voltage"/>
+          <p> {{protectionDetailVoltage}} </p>
         </label>
       </div>
-      <div class="protectionDetails_electricalDetails-spec">
+      <div class="protectionDetails_electricalDetails-spec" (click)="setCurrentVoltageViewMode('cathode')">
         <label> Cathode current:
-          <input [(ngModel)]="protection.current" placeholder="current"/>
+          <p> {{protectionDetailCurrent}} </p>
+        </label>
+      </div>
+      <div class="protectionDetails_electricalDetails-spec" (click)="setCurrentVoltageViewMode('temperatureMode')">
+        <label> Controller temperature:
+          <p> {{protectionDetailTempature}} </p>
         </label>
       </div>
     </div>
@@ -37,3 +42,4 @@
   </mat-card-actions>
 
 </mat-card>
+

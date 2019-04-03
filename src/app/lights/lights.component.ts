@@ -3,6 +3,7 @@ import {Light} from '../lights';
 import {LightService} from '../light.service';
 import {ElectronService} from 'ngx-electron';
 
+
 @Component({
   selector: 'app-lights',
   templateUrl: './lights.component.html',
@@ -41,26 +42,27 @@ export class LightsComponent implements OnInit {
     // this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
     // console.log('Requesting light on');
 
-    if (light.state === 1) {
+    if (light.state === '1') {
       console.log('Requesting light off');
-      light.state = 0;
+      light.state = '0';
       this._electronService.ipcRenderer.send('lightChannel', {
-        lightDevice: 1,
-        lightTimer: light.timer,
-        lightChan: light.channel,
-        lightState: 0,
-        lightBrightness: light.brightness
+        lightDevice: '1',
+        lightTimer: `${light.timer}`,
+        lightChan: `${light.channel}`,
+        lightState: `${light.state}`,
+        lightBrightness: `${light.brightness}`
       });
 
     } else {
+
       console.log('Requesting light on');
-      light.state = 1;
+      light.state = '1';
       this._electronService.ipcRenderer.send('lightChannel', {
-        lightDevice: 1,
-        lightTimer: light.timer,
-        lightChan: light.channel,
-        lightState: 0,
-        lightBrightness: light.brightness
+        lightDevice: '1',
+        lightTimer: `${light.timer}`,
+        lightChan: `${light.channel}`,
+        lightState: `${light.state}`,
+        lightBrightness: `${light.brightness}`
       });
     }
   }

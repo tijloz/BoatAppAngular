@@ -12,14 +12,6 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
   }
-  LightOn() {
-    this._electronService.ipcRenderer.send('lightChannel', { lightState: 1 });
-    console.log('Requesting light on');
-  }
-  LightOff() {
-    this._electronService.ipcRenderer.send('lightChannel', { lightState: 0 });
-    console.log('Requesting light on');
-  }
 }
 
 

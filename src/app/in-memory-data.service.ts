@@ -8,15 +8,16 @@ import {Injectable} from '@angular/core';
 })
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
+
     const lights = [
-      {id: 0, name: 'Anchor', state: 0, brightness: 0, Timer: 0, Channel: 0},
-      {id: 1, name: 'Nav', state: 0, brightness: 1, Timer: 0, Channel: 0},
-      {id: 2, name: 'Deck', state: 0, brightness: 2, Timer: 0, Channel: 0},
-      {id: 3, name: 'Galley', state: 0, brightness: 0, Timer: 0, Channel: 0},
-      {id: 4, name: 'Bathroom', state: 0, brightness: 1, Timer: 0, Channel: 0},
-      {id: 5, name: 'Cabin1', state: 0, brightness: 2, Timer: 0, Channel: 0},
-      {id: 6, name: 'Cabin2', state: 0, brightness: 3, Timer: 0, Channel: 0},
-      {id: 7, name: 'Ride', state: 0, brightness: 0, Timer: 0, Channel: 0}
+      {id: 0, name: 'Anchor', state: '0', brightness: '0', timer: '4', channel: '1'},
+      {id: 1, name: 'Nav', state: '0', brightness: '1', timer: '3', channel: '2'},
+      {id: 2, name: 'Deck', state: '0', brightness: '2', timer: '2', channel: '3'},
+      {id: 3, name: 'Galley', state: '0', brightness: '0', timer: '3', channel: '0'},
+      {id: 4, name: 'Bathroom', state: '0', brightness: '1', timer: '3', channel: '1'},
+      {id: 5, name: 'Cabin1', state: '0', brightness: '10', timer: '5', channel: '3'},
+      {id: 6, name: 'Cabin2', state: '0', brightness: '3', timer: '2', channel: '2'},
+      {id: 7, name: 'Ride', state: '0', brightness: '0', timer: '0', channel: '0'}
     ];
     return {lights};
   }

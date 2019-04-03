@@ -14,9 +14,9 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class ProtectionService {
-  fakeDB: Protection[] = [new Protection(0, 'Anchor', 0, 0.00, 0.00),
-    new Protection(1, 'Outdrive', 0, 0.00, 0.00),
-    new Protection(2, 'Prop', 0, 0.00, 0.00)
+  fakeDB: Protection[] = [new Protection(0, 'Anchor', '0', '0.00', '0.00', '20'),
+    new Protection(1, 'Outdrive', '0', '0.00', '0.00', '20'),
+    new Protection(2, 'Prop', '0', '0.00', '0.00', '20')
   ];
 
   private protectionsUrl = 'api/protections';  // URL to web api

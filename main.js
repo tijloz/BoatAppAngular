@@ -21,7 +21,7 @@ port = getPort();
  * Attempts to open a new serial port
  * @returns {SerialPort|SerialPort}
  */
-function getPort(){
+function getPort() {
   return port = new SerialPort(osSwap(), {baudRate: 9600}, function (err) {
     if (err) {
       console.error('Failed to open serial port');
@@ -42,17 +42,16 @@ function getPort(){
 }
 
 
-
-
 let mainWindow;
 
 function osSwap() {
   switch (osPlatform) {
     case 'win32':
-      return 'COM4';
+      return 'COM5';
 
     case 'linux':
-      return '/dev/ttyACM0';
+      //return '/dev/ttyACM0';
+      return '/dev/ttyUSB0';
   }
 }
 
@@ -132,9 +131,12 @@ app.on('ready', function () {
 A function for writing a light message to the slave board
  */
 ipcMain.on('lightChannel', function (event, light) {
+  console.log(`Got to the main.js`);
   console.log(`Light state is: ${light.lightState}`);
   let control = '!';
-  port.write(control + light.lightDevice + light.lightTimer + light.lightChan + light.lightState + light.lightBrightness + '\n');
+  let escapeChar = '\n';
+  console.error(control + `${light.lightDevice}` + `${light.lightTimer}` + `${light.lightChan}` + `${light.lightState}` + `${light.lightBrightness}` + escapeChar);
+  port.write(control + `${light.lightDevice}` + `${light.lightTimer}` + `${light.lightChan}` + `${light.lightState}` + `${light.lightBrightness}` + escapeChar);
 });
 
 
@@ -144,13 +146,24 @@ ipcMain.on('lightChannel', function (event, light) {
 parser.on('data', newLine => {
   console.log('Received data on the serial port');
   console.log(newLine);
+  let str = newLine;
 
-  // find the hash
+  /*
+   * Cut up the string
+   */
 
-  // take the opcode
+  let ctrlp1 = str.indexOf("!");
+  let next = ctrlp1 + 1;
+  let ctrlp2 = str.indexOf("!", next);
+  let ctrl = str.slice(ctrlp1 + 1, ctrlp2);
+  console.log(ctrl);
+  next = ctrlp2 + 1;
+  ctrlp1 = str.indexOf("!", next);
+  let value = str.slice(ctrlp2 + 1, ctrlp1);
+  console.log(value);
 
 
-  switch (newLine) { //switch on opcode
+  switch (ctrl) { //switch on opcode
 
     case '!Protection 1 Alive' :
       heartBeatDetected();
@@ -160,11 +173,17 @@ parser.on('data', newLine => {
     case '!Voltage':
       console.log("dump voltage");
       mainWindow.webContents.send('voltage', {success: true});
+      ipcMain.send();
       break;
 
     case '!Current':
       console.log("dump current");
       mainWindow.webContents.send('current', {success: true});
+      break;
+
+    case '!Temperature':
+      console.log("dump temperature");
+      mainWindow.webContents.send('temperature', {success: true});
       break;
 
     default:
