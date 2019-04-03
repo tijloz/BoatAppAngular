@@ -21,7 +21,7 @@ export class ProtectionDetailComponent implements OnInit {
   currentVoltageViewMode = 'anode';
   protectionDetailVoltage = '0';
   protectionDetailCurrent = '0';
-  protectionDetailTempature = '0';
+  protectionDetailTempature = '21';
 
 
 
@@ -57,8 +57,8 @@ export class ProtectionDetailComponent implements OnInit {
         this.protectionDetailCurrent = '0';
         break;
       default:
-        this.protectionDetailVoltage = this.getRandomBetween(55.6, 88.7);
-        this.protectionDetailCurrent = this.getRandomBetween(55.8, 88.9);
+        this.protectionDetailVoltage = this.getRandomBetween(2.6, 2.7);
+        this.protectionDetailCurrent = this.getRandomBetween(5.2, 5.4);
         console.log('Failed to identify voltage viewmode');
     }
   }
