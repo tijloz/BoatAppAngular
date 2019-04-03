@@ -103,8 +103,8 @@ app.on('ready', function () {
     /*      Create the main window      */
     mainWindow = new BrowserWindow({
       show: false,
-      frame: true,
-      //kiosk: true,
+      frame: false,
+      kiosk: true,
       //alwaysOnTop: true
     });
 
